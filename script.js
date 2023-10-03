@@ -1,9 +1,10 @@
-let inputBox = document.getElementById('inputBox')
-let buttons = document.querySelectorAll('button')
+const inputBox = document.getElementById('inputBox')
+const buttons = document.querySelectorAll('button')
 
 let result = ''
 
 const numArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+const operatorsArr = ['%', '/', '*', '+', '-']
 
 buttons.forEach(el => {
 	el.addEventListener('click', e => {
@@ -19,7 +20,19 @@ buttons.forEach(el => {
 			result = result.slice(0, -1)
 			inputBox.value = result
 		} else {
-			result += e.target.innerText
+			let value = inputBox.value
+			const previousElement = value.charAt(value.length - 1)
+			const newElement = e.target.innerText
+
+			if (operatorsArr.includes(previousElement) && operatorsArr.includes(newElement)) {
+				let newResult = result.slice(0, -1)
+				newResult += newElement
+				inputBox.value = newResult
+				result = newResult
+			} else {
+				result += newElement
+			}
+
 			inputBox.value = result
 		}
 	})
