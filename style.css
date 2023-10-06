@@ -26,6 +26,27 @@ body {
 	z-index: 5;
 }
 
+.calculator.active {
+	background: linear-gradient(30deg, #ec2d2d, #1c2b41);
+}
+
+.theme-color {
+	display: flex;
+	justify-content: center;
+	width: 50px;
+	padding: 1rem;
+	cursor: pointer;
+}
+
+.fa-lightbulb {
+	font-size: 3rem;
+	color: #8d8787;
+}
+
+.fa-lightbulb.active {
+	color: white;
+}
+
 .display input {
 	width: 350px;
 	padding: 1.5rem;

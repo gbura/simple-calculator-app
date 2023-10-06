@@ -1,10 +1,16 @@
 const inputBox = document.getElementById('inputBox')
 const buttons = document.querySelectorAll('button')
 
+const lightbulbDiv = document.querySelector('.theme-color')
+const lightbulbIcon = document.querySelector('.fa-lightbulb')
+const calculatorBody = document.querySelector('.calculator')
+
 let result = ''
 
 const numArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 const operatorsArr = ['%', '/', '*', '+', '-']
+
+// calculator functionality
 
 buttons.forEach(el => {
 	el.addEventListener('click', e => {
@@ -36,4 +42,11 @@ buttons.forEach(el => {
 			inputBox.value = result
 		}
 	})
+})
+
+// changing color
+
+lightbulbDiv.addEventListener('click', () => {
+	lightbulbIcon.classList.toggle('active')
+	calculatorBody.classList.toggle('active')
 })
